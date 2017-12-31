@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-xiaomi-auto-start" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<engines>
+	    <engine name="cordova" version=">=7.1.0"/>
+	    <engine name="cordova-android" version=">=6.3.0"/>
+	</engines>
+	<name>XiaomiAutoStart</name>
+	<description>Cordova Xiaomi AutoStart Plugin</description>
+	<js-module name="XiaomiAutoStart" src="www/XiaomiAutoStart.js">
+		<clobbers target="cordova.plugins.XiaomiAutoStart" />
+	</js-module>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="XiaomiAutoStart">
+				<param name="android-package" value="cordova.plugin.XiaomiAutoStart" />
+			</feature>
+		</config-file>
+		<config-file parent="/*" target="AndroidManifest.xml">
+		</config-file>
+		<source-file src="src/android/XiaomiAutoStart.java" target-dir="src/cordova/plugin" />
+	</platform>
+</plugin>
