@@ -4,7 +4,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
 import android.os.Build;
 import java.util.*;
 
@@ -14,7 +13,7 @@ class AutoStartPermissionHelper {
 
     public static AutoStartPermissionHelper getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = AutoStartPermissionHelper();
+            INSTANCE = new AutoStartPermissionHelper();
         }
         return INSTANCE;
     }
@@ -164,7 +163,7 @@ class AutoStartPermissionHelper {
 
         List<ApplicationInfo> packages;
         packages = context.getPackageManager().getInstalledApplications(0);
-        for (PackageInfo packageInfo : packages) {
+        for (ApplicationInfo packageInfo : packages) {
             if (PACKAGES_TO_CHECK_FOR_PERMISSION.contains(packageInfo.packageName)) {
                 return true;
             }
@@ -355,7 +354,7 @@ class AutoStartPermissionHelper {
     private boolean startIntent(Context context, String packageName, String componentName) throws Exception {
         try {
             Intent intent = new Intent();
-            intent.component = new ComponentName(packageName, componentName);
+            intent.setComponent(new ComponentName(packageName, componentName));
             context.startActivity(intent);
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -366,7 +365,7 @@ class AutoStartPermissionHelper {
     private boolean isPackageExists(Context context, String targetPackage) {
         List<ApplicationInfo> packages;
         packages = context.getPackageManager().getInstalledApplications(0);
-        for (PackageInfo packageInfo : packages) {
+        for (ApplicationInfo packageInfo : packages) {
             if (packageInfo.packageName == targetPackage) {
                 return true;
             }
