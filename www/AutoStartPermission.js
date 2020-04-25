@@ -12,4 +12,15 @@ AutoStartPermission.prototype.getAutoStartPermission = function() {
     exec(function(res){}, function(err){}, "AutoStartPermission", "getAutoStartPermission", []);
 }
 
-module.exports = new AutoStartPermission();
+AutoStartPermission.install = function () {
+    if (!window.plugins) {
+      window.plugins = {};
+    }
+  
+    window.plugins.AutoStartPermission = new AutoStartPermission();
+  
+  
+    return window.plugins.AutoStartPermission;
+  };
+  
+  cordova.addConstructor(AutoStartPermission.install);
