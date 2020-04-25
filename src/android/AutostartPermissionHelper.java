@@ -103,7 +103,7 @@ class AutoStartPermissionHelper {
     private static final String PACKAGE_ONE_PLUS_MAIN = "com.oneplus.security";
     private static final String PACKAGE_ONE_PLUS_COMPONENT = "com.oneplus.security.chainlaunch.view.ChainLaunchAppListActivity";
 
-    private static final String[] PACKAGES_TO_CHECK_FOR_PERMISSION = new String[]{
+    private static final List<String> PACKAGES_TO_CHECK_FOR_PERMISSION = Arrays.asList(new String[]{
         PACKAGE_ASUS_MAIN, 
         PACKAGE_XIAOMI_MAIN, 
         PACKAGE_LETV_MAIN, 
@@ -116,7 +116,7 @@ class AutoStartPermissionHelper {
         PACKAGE_HUAWEI_MAIN, 
         PACKAGE_SAMSUNG_MAIN, 
         PACKAGE_ONE_PLUS_MAIN
-    };
+    });
 
     public boolean getAutoStartPermission(Context context) {
 
