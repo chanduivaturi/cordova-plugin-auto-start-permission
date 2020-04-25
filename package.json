@@ -1,9 +1,9 @@
 {
-  "name": "cordova-plugin-xiaomi-auto-start",
+  "name": "cordova-plugin-auto-start-permission",
   "version": "1.0.0",
-  "description": "A plugin for determining if the user has autostarted app",
+  "description": "A plugin for determining if the user has autostart permission in android app",
   "cordova": {
-    "id": "cordova-plugin-xiaomi-auto-start",
+    "id": "cordova-plugin-auto-start-permission",
     "platforms": [
       "android"
     ]
@@ -12,6 +12,6 @@
     "ecosystem:cordova",
     "cordova-android"
   ],
-  "author": "Jayesh Anandani",
+  "author": "Chandu Ivaturi",
   "license": "MIT"
 }

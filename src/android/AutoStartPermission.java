@@ -21,9 +21,9 @@ import org.json.JSONObject;
 /**
  * This class echoes a string called from JavaScript.
  */
-public class XiaomiAutoStart extends CordovaPlugin {
+public class AutoStartPermission extends CordovaPlugin {
 
-    String TAG = "Auto Start Plugin";
+    String TAG = "Auto Start Permission Plugin";
     CallbackContext context;
 
     //String [] permissions = { 'in.btransit.btag.permission.AUTO_START' };
@@ -35,7 +35,7 @@ public class XiaomiAutoStart extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        LOG.d(TAG, "Inside Xiaomi Auto start");
+        /*LOG.d(TAG, "Inside Xiaomi Auto start");
 
         //context = callbackContext;
         Context context = cordova.getActivity().getApplicationContext();
@@ -48,8 +48,16 @@ public class XiaomiAutoStart extends CordovaPlugin {
                 this.openNewActivity(context);
             }
             return true;
-        }
+        }*/
         return false;
+    }
+
+    public boolean isAutoStartPermissionAvailable() {
+        return AutoStartPermissionHelper.getInstance().isAutoStartPermissionAvailable(cordova.getActivity().getApplicationContext());
+    }
+
+    public boolean getAutoStartPermission() {
+        return AutoStartPermissionHelper.getInstance().getAutoStartPermission(cordova.getActivity().getApplicationContext());
     }
 
     private void openNewActivity(Context context) {
