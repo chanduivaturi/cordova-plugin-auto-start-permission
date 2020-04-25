@@ -164,7 +164,7 @@ class AutoStartPermissionHelper {
 
         List<ApplicationInfo> packages;
         packages = context.getPackageManager().getInstalledApplications(0);
-        for (PackageInfo packageInfo in packages) {
+        for (PackageInfo packageInfo : packages) {
             if (PACKAGES_TO_CHECK_FOR_PERMISSION.contains(packageInfo.packageName)) {
                 return true;
             }
@@ -225,7 +225,7 @@ class AutoStartPermissionHelper {
     private boolean autoStartHonor(Context context) {
         if (isPackageExists(context, PACKAGE_HONOR_MAIN)) {
             try {
-                startIntent(context, PACKAGE_HONOR_MAIN, PACKAGE_HONOR_COMPONENT)
+                startIntent(context, PACKAGE_HONOR_MAIN, PACKAGE_HONOR_COMPONENT);
             } catch (Exception e) {
                 e.printStackTrace();
                 return false;
@@ -240,11 +240,11 @@ class AutoStartPermissionHelper {
     private boolean autoStartHuawei(Context context) {
         if (isPackageExists(context, PACKAGE_HUAWEI_MAIN)) {
             try {
-                startIntent(context, PACKAGE_HUAWEI_MAIN, PACKAGE_HUAWEI_COMPONENT)
+                startIntent(context, PACKAGE_HUAWEI_MAIN, PACKAGE_HUAWEI_COMPONENT);
             } catch (Exception e) {
                 e.printStackTrace();
                 try {
-                    startIntent(context, PACKAGE_HUAWEI_MAIN, PACKAGE_HUAWEI_COMPONENT_FALLBACK)
+                    startIntent(context, PACKAGE_HUAWEI_MAIN, PACKAGE_HUAWEI_COMPONENT_FALLBACK);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                     return false;
@@ -365,8 +365,8 @@ class AutoStartPermissionHelper {
 
     private boolean isPackageExists(Context context, String targetPackage) {
         List<ApplicationInfo> packages;
-        packages = context.getPackageManager().getInstalledApplications(0)
-        for (PackageInfo packageInfo in packages) {
+        packages = context.getPackageManager().getInstalledApplications(0);
+        for (PackageInfo packageInfo : packages) {
             if (packageInfo.packageName == targetPackage) {
                 return true;
             }
