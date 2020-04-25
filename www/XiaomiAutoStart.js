@@ -8,7 +8,7 @@ AutoStartPermission.prototype.isAutoStartPermissionAvailable = function() {
     exec(function(res){}, function(err){}, "AutoStartPermission", "isAutoStartPermissionAvailable", []);
 }
 
-AutoStartPermission.prototype.hasPermission = function() {
+AutoStartPermission.prototype.getAutoStartPermission = function() {
     exec(function(res){}, function(err){}, "AutoStartPermission", "getAutoStartPermission", []);
 }
 
