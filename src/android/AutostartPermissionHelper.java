@@ -351,7 +351,7 @@ class AutoStartPermissionHelper {
         return true;
     }
 
-    private boolean startIntent(Context context, String packageName, String componentName) throws Exception {
+    private void startIntent(Context context, String packageName, String componentName) throws Exception {
         try {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(packageName, componentName));
