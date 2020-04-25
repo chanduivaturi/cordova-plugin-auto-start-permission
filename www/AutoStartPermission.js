@@ -19,7 +19,8 @@ AutoStartPermission.install = function () {
   
     window.plugins.AutoStartPermission = new AutoStartPermission();
   
-  
+    console.log('pluigins1', window.plugins.AutoStartPermission);
+    console.log('pluigins2', window.plugins.AutoStartPermission.getAutoStartPermission);
     return window.plugins.AutoStartPermission;
   };
   
