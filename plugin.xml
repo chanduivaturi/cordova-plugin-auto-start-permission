@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-auto-start-permission" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<engines>
+	    <engine name="cordova" version=">=7.1.0"/>
+	    <engine name="cordova-android" version=">=6.3.0"/>
+	</engines>
+	<name>AutoStartPermission</name>
+	<description>Cordova AutoStart Permission Plugin</description>
+	<js-module name="AutoStartPermission" src="www/AutoStartPermission.js">
+		<clobbers target="window.AutoStartPermission" />
+	</js-module>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="AutoStartPermission">
+				<param name="android-package" value="cordova.plugin.AutoStartPermission" />
+			</feature>
+		</config-file>
+		<config-file parent="/*" target="AndroidManifest.xml">
+		</config-file>
+		<source-file src="src/android/AutoStartPermission.java" target-dir="src/cordova/plugin" />
+		<source-file src="src/android/AutoStartPermissionHelper.java" target-dir="src/cordova/plugin" />
+	</platform>
+</plugin>
