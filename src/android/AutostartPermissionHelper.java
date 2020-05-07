@@ -354,6 +354,7 @@ class AutoStartPermissionHelper {
     private void startIntent(Context context, String packageName, String componentName) throws Exception {
         try {
             Intent intent = new Intent();
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.setComponent(new ComponentName(packageName, componentName));
             context.startActivity(intent);
         } catch (Exception exception) {
