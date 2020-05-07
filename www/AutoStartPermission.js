@@ -3,11 +3,15 @@ var exec = require('cordova/exec');
 function AutoStartPermission() {
 }
 
-AutoStartPermission.prototype.isAutoStartPermissionAvailable = function() {
-  exec(function(res){}, function(err){}, "AutoStartPermission", "isAutoStartPermissionAvailable", []);
+AutoStartPermission.prototype.isAutoStartPermissionAvailable = function () {
+  cordova.exec(function (res) { }, function (err) { }, "AutoStartPermission", "isAutoStartPermissionAvailable", []);
+  return true;
 };
-AutoStartPermission.prototype.getAutoStartPermission = function() {
-  exec(function(res){}, function(err){}, "AutoStartPermission", "getAutoStartPermission", []);
+AutoStartPermission.prototype.getAutoStartPermission = function () {
+  console.log('calling1');
+  console.log('exec fun', cordova.exec(function (res) { console.log('plugin res', res) }, function (err) { console.err('plugin err', err) }, "AutoStartPermission", "getAutoStartPermission", []));
+  console.log('calling2');
+  return true;
 };
 
 
