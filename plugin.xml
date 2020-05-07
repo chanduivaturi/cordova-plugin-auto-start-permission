@@ -7,7 +7,7 @@
 	<name>AutoStartPermission</name>
 	<description>Cordova AutoStart Permission Plugin</description>
 	<js-module name="AutoStartPermission" src="www/AutoStartPermission.js">
-		<clobbers target="window.plugins.AutoStartPermission" />
+		<clobbers target="window.AutoStartPermission" />
 	</js-module>
 	<platform name="android">
 		<config-file parent="/*" target="res/xml/config.xml">
