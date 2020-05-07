@@ -11,7 +11,7 @@ var AutoStartPermission = {
 }
 
 
-AutoStartPermission.install = function () {
+//AutoStartPermission.install = function () {
     if (!window.plugins) {
       window.plugins = {};
     }
@@ -20,7 +20,7 @@ AutoStartPermission.install = function () {
   
     console.log('pluigins1', window.plugins.AutoStartPermission);
     console.log('pluigins2', window.plugins.AutoStartPermission.getAutoStartPermission);
-    return window.plugins.AutoStartPermission;
-  };
+    //return window.plugins.AutoStartPermission;
+  //};
   
-  cordova.addConstructor(AutoStartPermission.install);
+  //cordova.addConstructor(AutoStartPermission.install);
