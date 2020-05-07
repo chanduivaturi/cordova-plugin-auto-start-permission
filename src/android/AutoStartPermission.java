@@ -35,9 +35,18 @@ public class AutoStartPermission extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        /*LOG.d(TAG, "Inside Xiaomi Auto start");
+        LOG.d(TAG, "Inside execute");
 
-        //context = callbackContext;
+switch (action) {
+            case "isAutoStartPermissionAvailable":
+                callbackContext.success(isAutoStartPermissionAvailable()?1:0);
+                return true;
+            case "getAutoStartPermission":
+                callbackContext.success(getAutoStartPermission()?1:0);
+                return true;
+        }
+
+        /*//context = callbackContext;
         Context context = cordova.getActivity().getApplicationContext();
         if(action.equals("getPermission"))
         {

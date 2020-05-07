@@ -366,7 +366,7 @@ class AutoStartPermissionHelper {
         List<ApplicationInfo> packages;
         packages = context.getPackageManager().getInstalledApplications(0);
         for (ApplicationInfo packageInfo : packages) {
-            if (packageInfo.packageName == targetPackage) {
+            if (packageInfo.packageName.equals(targetPackage)) {
                 return true;
             }
         }
