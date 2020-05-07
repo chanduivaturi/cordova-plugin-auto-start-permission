@@ -16,6 +16,9 @@ AutoStartPermission.prototype.getAutoStartPermission = function() {
       window.plugins = {};
     }
     var autoStartPermission = new AutoStartPermission();  
+    if (!window.plugins.AutoStartPermission) {
+      window.plugins.AutoStartPermission = autoStartPermission;
+    }
     console.log('pluigins1', window.plugins.AutoStartPermission);
     console.log('pluigins2', window.plugins.AutoStartPermission.getAutoStartPermission);
     //return window.plugins.AutoStartPermission;
@@ -23,6 +26,4 @@ AutoStartPermission.prototype.getAutoStartPermission = function() {
   
   //cordova.addConstructor(AutoStartPermission.install);
 module.exports = autoStartPermission;
-if (!window.plugins.AutoStartPermission) {
-  window.plugins.AutoStartPermission = autoStartPermission;
-}
+
