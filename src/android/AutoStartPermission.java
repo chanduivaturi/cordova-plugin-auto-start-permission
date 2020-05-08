@@ -44,6 +44,9 @@ public class AutoStartPermission extends CordovaPlugin {
             case "getAutoStartPermission":
                 callbackContext.success(getAutoStartPermission()?1:0);
                 return true;
+            case "getBuildVersion":
+                callbackContext.success(getBuildVersion());
+                return true;
         }
 
         /*//context = callbackContext;
@@ -68,7 +71,7 @@ public class AutoStartPermission extends CordovaPlugin {
     public boolean getAutoStartPermission() {
         return AutoStartPermissionHelper.getInstance().getAutoStartPermission(cordova.getActivity().getApplicationContext());
     }
-    public int getBuildVersion() {
+    public Integer getBuildVersion() {
         return Build.VERSION.SDK_INT;
     }
     private void openNewActivity(Context context) {
