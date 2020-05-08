@@ -36,8 +36,8 @@ public class AutoStartPermission extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         LOG.d(TAG, "Inside execute");
-
-switch (action) {
+        // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        switch (action) {
             case "isAutoStartPermissionAvailable":
                 callbackContext.success(isAutoStartPermissionAvailable()?1:0);
                 return true;
@@ -68,7 +68,9 @@ switch (action) {
     public boolean getAutoStartPermission() {
         return AutoStartPermissionHelper.getInstance().getAutoStartPermission(cordova.getActivity().getApplicationContext());
     }
-
+    public int getBuildVersion() {
+        return Build.VERSION.SDK_INT;
+    }
     private void openNewActivity(Context context) {
            Intent intent = new Intent();
            intent.setComponent(new ComponentName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity"));

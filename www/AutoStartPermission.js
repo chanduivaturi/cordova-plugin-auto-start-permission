@@ -8,26 +8,19 @@ AutoStartPermission.prototype.isAutoStartPermissionAvailable = function () {
   return true;
 };
 AutoStartPermission.prototype.getAutoStartPermission = function () {
-  console.log('calling1');
-  console.log('exec fun', cordova.exec(function (res) { console.log('plugin res', res) }, function (err) { console.err('plugin err', err) }, "AutoStartPermission", "getAutoStartPermission", []));
-  console.log('calling2');
+  cordova.exec(function (res) { console.log('Autostart Permission Response', res) }, function (err) { console.error('Autostart Permission Error', err) }, "AutoStartPermission", "getAutoStartPermission", []);
   return true;
 };
+AutoStartPermission.prototype.getBuildVersion = function () {
+  cordova.exec(function (res) { console.log('Autostart Permission Version Response', res); return res; }, function (err) { console.error('Autostart Permission Version Error', err) }, "AutoStartPermission", "getBuildVersion", []);
+}; 
 
-
-//AutoStartPermission.install = function () {
-    if (!window.plugins) {
-      window.plugins = {};
-    }
-    var autoStartPermission = new AutoStartPermission();  
-    if (!window.plugins.AutoStartPermission) {
-      window.plugins.AutoStartPermission = autoStartPermission;
-    }
-    console.log('pluigins1', window.plugins.AutoStartPermission);
-    console.log('pluigins2', window.plugins.AutoStartPermission.getAutoStartPermission);
-    //return window.plugins.AutoStartPermission;
-  //};
-  
-  //cordova.addConstructor(AutoStartPermission.install);
+if (!window.plugins) {
+  window.plugins = {};
+}
+var autoStartPermission = new AutoStartPermission();  
+if (!window.plugins.AutoStartPermission) {
+  window.plugins.AutoStartPermission = autoStartPermission;
+}
 module.exports = autoStartPermission;
 
