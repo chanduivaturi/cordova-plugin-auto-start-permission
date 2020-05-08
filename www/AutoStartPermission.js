@@ -12,7 +12,9 @@ AutoStartPermission.prototype.getAutoStartPermission = function () {
   return true;
 };
 AutoStartPermission.prototype.getBuildVersion = function () {
-  cordova.exec(function (res) { console.log('Autostart Permission Version Response', res); return res; }, function (err) { console.error('Autostart Permission Version Error', err) }, "AutoStartPermission", "getBuildVersion", []);
+  let buildVersion = 0;
+  cordova.exec(function (res) { console.log('Autostart Permission Version Response', res); buildVersion = res; }, function (err) { console.error('Autostart Permission Version Error', err) }, "AutoStartPermission", "getBuildVersion", []);
+  return buildVersion;
 }; 
 
 if (!window.plugins) {
