@@ -1,6 +1,7 @@
 var exec = require('cordova/exec');
 
 function AutoStartPermission() {
+  this.sdkVersion = 0;
 }
 
 AutoStartPermission.prototype.isAutoStartPermissionAvailable = function () {
@@ -12,15 +13,15 @@ AutoStartPermission.prototype.getAutoStartPermission = function () {
   return true;
 };
 AutoStartPermission.prototype.getBuildVersion = function () {
-  let buildVersion = 0;
-  cordova.exec(function (res) { console.log('Autostart Permission Version Response', res); buildVersion = res; }, function (err) { console.error('Autostart Permission Version Error', err) }, "AutoStartPermission", "getBuildVersion", []);
-  return buildVersion;
+  var _self = this;
+  cordova.exec(function (res) { console.log('Autostart Permission Version Response', res); _self.sdkVersion = res; }, function (err) { console.error('Autostart Permission Version Error', err) }, "AutoStartPermission", "getBuildVersion", []);
 }; 
 
 if (!window.plugins) {
   window.plugins = {};
 }
 var autoStartPermission = new AutoStartPermission();  
+autoStartPermission.getBuildVersion();
 if (!window.plugins.AutoStartPermission) {
   window.plugins.AutoStartPermission = autoStartPermission;
 }
